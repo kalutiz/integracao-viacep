@@ -13,5 +13,4 @@ public interface CepMapper {
     @Mapping(target = "cep", source = "cep")
     CepDTO cepToCepDto(Cep cep);
 
-    String map(Cep value);
 }

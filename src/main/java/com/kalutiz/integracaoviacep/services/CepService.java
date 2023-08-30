@@ -1,7 +1,7 @@
 package com.kalutiz.integracaoviacep.services;
 
 import com.kalutiz.integracaoviacep.dto.CepDTO;
-import com.kalutiz.integracaoviacep.entities.Cep;
+import com.kalutiz.integracaoviacep.entities.CepEntity;
 import com.kalutiz.integracaoviacep.mapper.CepMapper;
 import com.kalutiz.integracaoviacep.utils.CepUtil;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,13 @@ public class CepService {
 
     public CepDTO findCep(String cep) {
         String endpoint = cep + PATH;
-        Cep entity = CepUtil.webClient()
+        CepEntity entity = CepUtil.webClient()
                 .get()
                 .uri(builder -> builder.path(endpoint).build())
                 .retrieve()
-                .bodyToMono(Cep.class)
+                .bodyToMono(CepEntity.class)
                 .block();
-        CepDTO dto = CepMapper.INSTANCE.cepToCepDto(entity);
+        CepDTO dto = CepMapper.INSTANCE.cepEntityToCepDTO(entity);
         return dto;
     }
-
 }

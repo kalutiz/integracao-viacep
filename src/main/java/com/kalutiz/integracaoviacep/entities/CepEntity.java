@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Cep {
+public class CepEntity {
 
     private String cep;
     private String logradouro;
@@ -21,5 +21,4 @@ public class Cep {
     private String gia;
     private String ddd;
     private String siafi;
-
 }
